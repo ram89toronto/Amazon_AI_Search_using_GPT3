@@ -159,7 +159,7 @@ def main():
             st.subheader('Amazon Watches Data')
             st.write(watches)
         prompt = st.text_input(label = "Please enter your watch search here ...")
-        openai.api_key = api
+        openai.api_key = "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"
         gpt = GPT(engine='davinci', temperature=0.5, max_tokens=100)
         gpt.add_example(Example('How many unique values in brand?','watches["Brand"].nunique()'))
         gpt.add_example(Example('What is the average price of Fossil?','np.mean(watches.loc[(watches.loc[:,"Brand"]=="Fossil"),"Price"])'))
