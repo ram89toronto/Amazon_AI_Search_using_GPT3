@@ -24,7 +24,7 @@ numpy == 1.21.5
 openai == 0.19.0
 
 # Ga_final_project/final_test_app.py: 14
-opencv-python
+opencv-python-headless==4.2.0.32
 
 # Ga_final_project/.ipynb_checkpoints/data_scraping_from_amazon-checkpoint.ipynb: 7,95
 # Ga_final_project/data_scraping_from_amazon.ipynb: 7,95,233
