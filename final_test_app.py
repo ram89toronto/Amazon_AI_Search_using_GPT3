@@ -19,9 +19,11 @@ import openai
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from credentials import api
+
 from gpt import GPT
 from gpt import Example
+
+api = S3Connection(os.environ['KEY'])
 
 def load_image(image_file):
     img = Image.open(image_file)
