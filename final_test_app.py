@@ -1,6 +1,6 @@
 import streamlit as st
 
-from boto.s3.connection import S3Connection
+#from boto.s3.connection import S3Connection
 from PIL import Image
 import os
 import random
@@ -19,11 +19,14 @@ import openai
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from dotenv import load_dotenv
 
+load_dotenv()
 from gpt import GPT
 from gpt import Example
 
-api = S3Connection(os.environ['KEY'])
+#api = S3Connection(os.environ['KEY'])
+api = os.getenv('KEY')
 
 def load_image(image_file):
     img = Image.open(image_file)
