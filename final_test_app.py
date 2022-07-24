@@ -165,7 +165,7 @@ def main():
         if st.checkbox('Show Watches Information Table :'):
             st.subheader('Amazon Watches Data')
             st.write(watches)
-        prompt = st.text_input(label = "Please enter your watch search here ...", type= "What is the average price of Fossil?")
+        prompt = st.text_input(label = "Please enter your watch search here ...", value= "What is the average price of Fossil?")
         openai.api_key = api
         gpt = GPT(engine='davinci', temperature=0.5, max_tokens=100)
         gpt.add_example(Example('How many unique values in brand?','watches["Brand"].nunique()'))
