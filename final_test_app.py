@@ -165,7 +165,7 @@ def main():
         if st.checkbox('Show Watches Information Table :'):
             st.subheader('Amazon Watches Data')
             st.write(watches)
-        prompt = st.text_input(label = "Please enter your watch search here ...")
+        prompt = st.text_input(label = "Please enter your watch search here ...", type= "What is the average price of Fossil?")
         openai.api_key = api
         gpt = GPT(engine='davinci', temperature=0.5, max_tokens=100)
         gpt.add_example(Example('How many unique values in brand?','watches["Brand"].nunique()'))
@@ -178,9 +178,15 @@ def main():
         gpt.add_example(Example('Find the median price of Timex Brand',
                        'np.median(watches.loc[(watches.loc[:,"Brand"]=="Timex"),"Price"])'))
         response = gpt.get_top_reply(prompt)
+        st.markdown("""
+        Auto Python Code:
+        """)
         st.write(response)
         modified_response = response.split("output: ")[-1].strip('\n')
         ans =compile(modified_response,"<string>","eval")
+        st.markdown(""" 
+        The answer:
+        """)
         st.write(eval(ans))
 
 
