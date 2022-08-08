@@ -87,7 +87,7 @@ watches = load_data()
 def main():
     st.title("Amazon Analytics Made Easy - Watch Collection")
 
-    menu = ["Amazon Watch Collection", "Amazon Watches Insights", "Amazon Search", "Color Identification App"]
+    menu = ["Amazon Watch Collection", "Amazon Watches Insights", "Amazon Search"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Amazon Watch Collection":
