@@ -155,7 +155,8 @@ def main():
         figsize =(100,100)
         st.pyplot()
 
-    else choice =="Amazon Search":
+    else:
+        
         st.subheader("Amazon Search")
         st.markdown("""
         Few Questions that you can ask
