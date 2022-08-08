@@ -152,7 +152,7 @@ def main():
         figsize =(100,100)
         st.pyplot()
 
-    elif choice =="Amazon Search":
+    else choice =="Amazon Search":
         st.subheader("Amazon Search")
         st.markdown("""
         Few Questions that you can ask
@@ -191,37 +191,7 @@ def main():
 
 
 
-    else:
-        st.subheader("Upload any Image to find Top 5 Colors")
-
-        image_file = st.file_uploader("Upload below", type=['JPEG','PNG','JPG'])
-        if image_file is not None:
-            img = load_image(image_file)
-            st.image(img)
-
-            # Analysis
-            # Image Pixel
-
-            image_pixel = get_image_pixel(image_file)
-            st.write(image_pixel)
-
-            #Distribution via Kmeans and Counter
-            myimage = load_image_with_cv(image_file)
-            modified_image = prep_image(myimage)
-            pix_df = color_analysis(modified_image)
-            p01 = px.pie(pix_df, names='label', values='Counts',color='label')
-            st.plotly_chart(p01)
-
-
-            col1, col2 = st.columns([1,2])
-            with col1:
-                st.write(image_pixel)
-                st.info("Color Distribution")
-                st.write(pix_df)
-
-            with col2:
-                p02 = px.bar(pix_df, x='label',y='Counts', color="label")
-                st.plotly_chart(p02)
+  
 
 
 
