@@ -25,6 +25,9 @@ load_dotenv()
 from gpt import GPT
 from gpt import Example
 
+
+st.set_page_config(layout="wide")
+
 #api = S3Connection(os.environ['KEY'])
 api = os.getenv('KEY')
 
