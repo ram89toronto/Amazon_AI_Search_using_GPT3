@@ -1,2 +1,7 @@
 # ga-final-capstone-test2906
-A GA-Final Project demo
+
+# Amazon Analytics Made Easy
+## Using GPT3 to answer search question from Amazon Store
+
+
+
