@@ -10,6 +10,7 @@
 - Extracting analytics using simple questions with trained model generates output results
 
 ## Presentation Link
+- https://github.com/ram89toronto/Amazon_AI_Search_using_GPT3/blob/main/Amazon%20Analytics%20using%20GPT3.pptx
 
 
 
