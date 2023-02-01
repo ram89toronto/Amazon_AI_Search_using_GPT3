@@ -1,5 +1,7 @@
-import streamlit as st
+# Importing Libraries
 
+
+import streamlit as st
 #from boto.s3.connection import S3Connection
 from PIL import Image
 import os
@@ -26,31 +28,38 @@ from gpt import GPT
 from gpt import Example
 
 
-st.set_page_config(layout="wide")
+#Setting up Secret Keys
 
 #api = S3Connection(os.environ['KEY'])
 api = os.getenv('KEY')
 
+
+st.set_page_config(layout="wide")
 def load_image(image_file):
+    """ Loads image from scraped data """
     img = Image.open(image_file)
     return img
 
 def get_image_pixel(file_name):
+    """ resize the image to fit """
     with Image.open(file_name) as rgb_image:
         image_pixel = rgb_image.getpixel((30,30))
     return image_pixel
 
 def load_image_with_cv(image_file):
+    """ loading the image and opening it """
     image = Image.open(image_file)
     return cv2.cvtColor(np.array(image), cv2.COLOR_BGR2RGB)
 
 def color_name(hex_color):
+    """ presenting with right webcolors """
     color =webcolors.hex_to_name(str(hex_color))
     return color
 
 
 
 def rgb_to_hex(rgb_color):
+    """ Convert RGB to heX """
     hex_color ='#'
     for i in rgb_color:
         i=int(i)
@@ -59,15 +68,19 @@ def rgb_to_hex(rgb_color):
     return hex_color
 
 def color_name(hex_color):
+    """ Return english word of color name """
+    
     color =webcolors.hex_to_name(str(hex_color))
     return color
 
 def prep_image(raw_img):
+    """ Resizing the image for immediate use """
     modified_img = cv2.resize(raw_img,(900,600), interpolation = cv2.INTER_AREA)
     modified_img = modified_img.reshape(modified_img.shape[0]*modified_img.shape[1], 3)
     return modified_img
 
 def color_analysis(img):
+    """ K Means clustering in simplest form """
     clf =KMeans(n_clusters = 5)
     color_labels= clf.fit_predict(img)
     center_colors= clf.cluster_centers_
@@ -80,6 +93,7 @@ def color_analysis(img):
 
 @st.cache
 def load_data():
+    """ Including under cache """
     data = pd.read_csv('df.csv')
     return data
 watches = load_data()
